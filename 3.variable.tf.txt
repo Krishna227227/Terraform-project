@@ -1,0 +1,13 @@
+[root@ip-172-31-39-240 vasu]# cat variable.tf
+variable "vpc_cidr" {
+  default     = "10.0.0.0/16"
+  description = "choose cidr for your vpc"
+  type        = string
+}
+
+variable "web_ami" {
+  default     = "ami-01128ea8b62b5930e"
+  description = "choose ami for web app"
+  type        = string
+}
+[root@ip-172-31-39-240 vasu]#

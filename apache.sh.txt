@@ -1,0 +1,7 @@
+[root@ip-172-31-39-240 files]# cat apache.sh
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h2> GANA TECH Terraform Demo </h2>" > /var/www/html/index.html
+[root@ip-172-31-39-240 files]#

@@ -1,0 +1,6 @@
+[root@ip-172-31-39-240 vasu]# cat locals.tf
+locals {
+  num_of_subnets = length(data.aws_availability_zones.available.names)
+  ws = terraform.workspace
+}
+[root@ip-172-31-39-240 vasu]#

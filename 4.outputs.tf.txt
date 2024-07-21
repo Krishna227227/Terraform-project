@@ -1,0 +1,13 @@
+[root@ip-172-31-39-240 vasu]# cat outputs.tf
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+
+output "az_names" {
+  value = data.aws_availability_zones.available.names
+}
+[root@ip-172-31-39-240 vasu]#
