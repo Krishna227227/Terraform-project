@@ -1,6 +1,4 @@
-[root@ip-172-31-39-240 vasu]# cat subnet.tf
 # create public subnets
-
 
 resource "aws_subnet" "public" {
   count      = local.num_of_subnets
@@ -36,6 +34,7 @@ resource "aws_internet_gateway" "gw" {
 }
 
 # create route table for public subnets
+
 resource "aws_route_table" "pr" {
   vpc_id = aws_vpc.main.id
 
@@ -53,7 +52,9 @@ resource "aws_route_table" "pr" {
     Name = "public-rt-${local.ws}"
   }
 }
+
 # associate route table with public subnets
+
 resource "aws_route_table_association" "pub_rt_asso" {
   count = local.num_of_subnets
   subnet_id      = aws_subnet.public.*.id[count.index]
@@ -67,13 +68,14 @@ resource "aws_eip" "nat" {
 }
 
 # Create Nat Gateway for private subnets
+
 resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.public.*.id[0]
 }
 
-
 # create route table for private subnets
+
 resource "aws_route_table" "pri" {
   vpc_id = aws_vpc.main.id
 
@@ -94,4 +96,4 @@ resource "aws_route_table_association" "priv_rt_asso" {
   subnet_id      = aws_subnet.private.*.id[count.index]
   route_table_id = aws_route_table.pri.id
 }
-[root@ip-172-31-39-240 vasu]#
+
