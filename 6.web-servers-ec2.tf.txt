@@ -1,5 +1,5 @@
+# Creating EC2 and attaching Security Group
 
-[root@ip-172-31-39-240 vasu]# cat web-servers-ec2.tf
 resource "aws_instance" "web" {
   ami                    = var.web_ami
   instance_type          = "t2.micro"
@@ -47,4 +47,3 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
-[root@ip-172-31-39-240 vasu]#
