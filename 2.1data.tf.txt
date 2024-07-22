@@ -1,8 +1,7 @@
-[root@ip-172-31-39-240 vasu]# cat data.tf
+# Collecting data
+
 data "aws_caller_identity" "current" {}
 
 data "aws_availability_zones" "available" {
   state = "available"
 }
-
-[root@ip-172-31-39-240 vasu]#
